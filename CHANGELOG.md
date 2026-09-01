@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/bhaylorina/Nai64Patches/compare/1.0.0...1.1.0) (2026-09-01)
+
+### New Features
+
+* add accessibility patch ([f4ed643](https://github.com/bhaylorina/Nai64Patches/commit/f4ed643cc237c2d89ae1b9705114d6ebabc1d787))
+
 ## 1.0.0 (2026-09-01)
 
 ### Bug Fixes

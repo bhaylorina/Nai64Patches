@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "patches": [
     {
       "name": "Skip Consent Popup",
@@ -3550,6 +3550,14 @@
     {
       "name": "Ignore Touch Exploration",
       "description": "Makes AccessibilityManager.isTouchExplorationEnabled always return false so games that disable or alter gameplay under TalkBack behave normally",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
+    },
+    {
+      "name": "Keep Alive Accessibility",
+      "description": "Injects an Accessibility Service into the manifest to keep the app immortal like aodnotify.",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
