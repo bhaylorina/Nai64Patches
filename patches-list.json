@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.4.9",
+  "version": "1.4.10",
   "patches": [
     {
       "name": "Skip Consent Popup",
@@ -1159,7 +1159,7 @@
     },
     {
       "name": "Add FGS Permissions",
-      "description": "Injects FGS Permissions",
+      "description": "Injects Android 16 FGS Manifest rules",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
@@ -4492,7 +4492,7 @@
     },
     {
       "name": "Trigger Immortal FGS",
-      "description": "Safe Application End-Hook",
+      "description": "Injects delayed FGS trigger into Activity.onResume",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,

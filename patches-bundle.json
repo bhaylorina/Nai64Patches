@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T17:13:00",
-  "description": "## [1.4.9](https://github.com/bhaylorina/Nai64Patches/compare/1.4.8...1.4.9) (2026-09-02)\n\n### Bug Fixes\n\n* Implement activity lifecycle callbacks for service ([bb17661](https://github.com/bhaylorina/Nai64Patches/commit/bb17661e0c357d40ce4907da3bd86ac462d06405))\n* Update ActiveManifestPatch to add FGS Permissions ([1c0ffea](https://github.com/bhaylorina/Nai64Patches/commit/1c0ffeaa7468b663e184e1eb3e4e49f49987c4a8))\n* Update TriggerFGSPatch to inject Application End-Hook ([c374529](https://github.com/bhaylorina/Nai64Patches/commit/c3745296890286ee9ba63339ef37ffdcc2ee2ece))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.9/patches-1.4.9.mpp",
+  "created_at": "2026-09-02T17:28:49",
+  "description": "## [1.4.10](https://github.com/bhaylorina/Nai64Patches/compare/1.4.9...1.4.10) (2026-09-02)\n\n### Bug Fixes\n\n* Refactor KeepAliveService for improved functionality ([d0a3a94](https://github.com/bhaylorina/Nai64Patches/commit/d0a3a944ef799358ce6a884aae77024c4dd98b51))\n* Update FGS permissions and logging for API 36 ([844ee55](https://github.com/bhaylorina/Nai64Patches/commit/844ee556e965b5e0ac759dcd323e87f6f7dcc285))\n* Update TriggerFGSPatch to inject FGS trigger onResume ([5e91381](https://github.com/bhaylorina/Nai64Patches/commit/5e91381c524b058294d0feb331ef79a69d1ef855))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.10/patches-1.4.10.mpp",
   "signature_download_url": "",
-  "version": "1.4.9"
+  "version": "1.4.10"
 }

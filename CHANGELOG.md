@@ -1,3 +1,11 @@
+## [1.4.10](https://github.com/bhaylorina/Nai64Patches/compare/1.4.9...1.4.10) (2026-09-02)
+
+### Bug Fixes
+
+* Refactor KeepAliveService for improved functionality ([d0a3a94](https://github.com/bhaylorina/Nai64Patches/commit/d0a3a944ef799358ce6a884aae77024c4dd98b51))
+* Update FGS permissions and logging for API 36 ([844ee55](https://github.com/bhaylorina/Nai64Patches/commit/844ee556e965b5e0ac759dcd323e87f6f7dcc285))
+* Update TriggerFGSPatch to inject FGS trigger onResume ([5e91381](https://github.com/bhaylorina/Nai64Patches/commit/5e91381c524b058294d0feb331ef79a69d1ef855))
+
 ## [1.4.9](https://github.com/bhaylorina/Nai64Patches/compare/1.4.8...1.4.9) (2026-09-02)
 
 ### Bug Fixes
