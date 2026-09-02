@@ -7,6 +7,6 @@ android {
 }
 
 dependencies {
-    // Tells the framework that these classes belong to Morphe Extensions
-    compileOnly("app.morphe:morphe-extensions-library:1.8.0") 
+    // Corrected to the actual existing version
+    implementation("app.morphe:morphe-extensions-library:1.6.0") 
 }
