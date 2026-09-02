@@ -1,3 +1,9 @@
+## [1.4.5](https://github.com/bhaylorina/Nai64Patches/compare/1.4.4...1.4.5) (2026-09-02)
+
+### Bug Fixes
+
+* Update TriggerFGSPatch description and logic ([98cd1c9](https://github.com/bhaylorina/Nai64Patches/commit/98cd1c9b5e9cb6935e37c3570999c68df4d90b6a))
+
 ## [1.4.4](https://github.com/bhaylorina/Nai64Patches/compare/1.4.3...1.4.4) (2026-09-02)
 
 ### Bug Fixes
