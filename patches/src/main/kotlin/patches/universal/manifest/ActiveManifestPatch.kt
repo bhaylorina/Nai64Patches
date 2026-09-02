@@ -6,7 +6,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val activeManifestPatch = resourcePatch(
     name = "Add FGS Permissions",
-    description = "Android 14 FGS tags",
+    description = "Android 14/16 FGS tags",
     default = false,
 ) {
     execute {
@@ -23,7 +23,7 @@ val activeManifestPatch = resourcePatch(
             val p2 = m.createElement("uses-permission")
             p2.setAttributeNS(
                 NS_ANDROID, "android:name", 
-                "android.permission.FOREGROUND_SERVICE_DATA_SYNC"
+                "android.permission.FOREGROUND_SERVICE_REMOTE_MESSAGING"
             )
             root.appendChild(p1)
             root.appendChild(p2)
@@ -38,14 +38,13 @@ val activeManifestPatch = resourcePatch(
             )
             srv.setAttributeNS(
                 NS_ANDROID, "android:foregroundServiceType", 
-                "dataSync"
+                "remoteMessaging"
             )
             app.appendChild(srv)
             applied = true
         }
         if (applied) Logger.getLogger(
             this::class.java.name
-        ).info("Manifest Patched")
+        ).info("Manifest Patched for Messaging")
     }
 }
-
