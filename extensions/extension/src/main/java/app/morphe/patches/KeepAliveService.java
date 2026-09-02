@@ -10,13 +10,9 @@ import android.os.Build;
 import android.os.IBinder;
 
 public class KeepAliveService extends Service {
-
-    // FOOL PROGUARD: Dummy call so method isn't deleted
     public KeepAliveService() {
         super();
-        if (Build.VERSION.SDK_INT < 0) {
-            start(null); 
-        }
+        if (Build.VERSION.SDK_INT < 0) { start(null); }
     }
 
     public static void start(Context ctx) {
@@ -33,13 +29,10 @@ public class KeepAliveService extends Service {
     }
 
     @Override
-    public IBinder onBind(Intent i) { 
-        return null; 
-    }
+    public IBinder onBind(Intent i) { return null; }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    public int onStartCommand(Intent i, int f, int s) {
         try {
             if (Build.VERSION.SDK_INT >= 26) {
                 NotificationManager nm = 
@@ -48,31 +41,29 @@ public class KeepAliveService extends Service {
                     );
                 NotificationChannel ch = 
                     new NotificationChannel(
-                        "fgs", "Active", 2
+                        "fgs_immortal", "X Keep Alive", 2
                     );
                 if (nm != null) {
                     nm.createNotificationChannel(ch);
                 }
 
                 Notification.Builder b = 
-                    new Notification.Builder(this, "fgs")
+                    new Notification.Builder(
+                        this, "fgs_immortal"
+                    )
                     .setContentTitle("X is Immortal")
-                    .setContentText("FGS Active")
+                    .setContentText("Network Locked")
                     .setSmallIcon(
-                        android.R.drawable.ic_dialog_info
+                        android.R.drawable.ic_menu_info_details
                     );
 
                 if (Build.VERSION.SDK_INT >= 34) {
-                    startForeground(1, b.build(), 1); 
+                    startForeground(1001, b.build(), 1); 
                 } else {
-                    startForeground(1, b.build());
+                    startForeground(1001, b.build());
                 }
             }
         } catch (Exception e) {}
-    }
-    
-    @Override
-    public int onStartCommand(Intent i, int f, int s) {
         return START_STICKY;
     }
 }
