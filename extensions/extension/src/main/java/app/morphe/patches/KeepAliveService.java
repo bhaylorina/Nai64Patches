@@ -1,46 +1,39 @@
 package app.morphe.patches;
 
-import android.app.Activity;
-import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.IBinder;
+import android.widget.Toast;
+import android.os.Handler;
+import android.os.Looper;
 
 public class KeepAliveService extends Service {
-    private static boolean started = false;
+    
+    public KeepAliveService() {
+        super();
+        // Dummy call to prevent R8 from deleting the start method
+        if (Build.VERSION.SDK_INT < 0) { start(null); }
+    }
 
-    // R8 CANNOT DELETE THIS because it's inside a Manifest-registered Service
-    public static void init(Application app) {
-        if (started) return;
-        started = true;
-        
-        app.registerActivityLifecycleCallbacks(
-            new Application.ActivityLifecycleCallbacks() {
-                @Override
-                public void onActivityResumed(Activity a) {
-                    try {
-                        Intent i = new Intent(a, KeepAliveService.class);
-                        if (Build.VERSION.SDK_INT >= 26) {
-                            a.startForegroundService(i);
-                        } else {
-                            a.startService(i);
-                        }
-                    } catch (Exception e) {}
-                }
-                
-                @Override public void onActivityCreated(Activity a, Bundle b) {}
-                @Override public void onActivityStarted(Activity a) {}
-                @Override public void onActivityPaused(Activity a) {}
-                @Override public void onActivityStopped(Activity a) {}
-                @Override public void onActivitySaveInstanceState(Activity a, Bundle b) {}
-                @Override public void onActivityDestroyed(Activity a) {}
+    public static void start(Context ctx) {
+        try {
+            Intent i = new Intent(ctx, KeepAliveService.class);
+            if (Build.VERSION.SDK_INT >= 26) {
+                ctx.startForegroundService(i);
+            } else {
+                ctx.startService(i);
             }
-        );
+        } catch (Exception e) {
+            new Handler(Looper.getMainLooper()).post(() -> 
+                Toast.makeText(ctx, "FGS Blocked: " + e.getMessage(), 
+                Toast.LENGTH_LONG).show()
+            );
+        }
     }
 
     @Override 
@@ -56,7 +49,7 @@ public class KeepAliveService extends Service {
 
                 Notification.Builder b = new Notification.Builder(this, "fgs_x")
                     .setContentTitle("X is Immortal")
-                    .setContentText("Listening for DMs...")
+                    .setContentText("Network Locked (Listening...)")
                     .setSmallIcon(android.R.drawable.ic_menu_info_details);
 
                 if (Build.VERSION.SDK_INT >= 34) {
