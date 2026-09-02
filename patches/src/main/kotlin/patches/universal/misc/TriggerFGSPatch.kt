@@ -7,41 +7,47 @@ import java.util.logging.Logger
 @Suppress("unused")
 val triggerFGSPatch = bytecodePatch(
     name = "Trigger Immortal FGS",
-    description = "Starts FGS from all Activities onResume",
+    description = "Global Application Hook",
     default = false,
 ) {
     execute {
-        val log = Logger.getLogger(
-            this::class.java.name
-        )
-        var patched = 0
+        val log = Logger.getLogger(this::class.java.name)
+        var patched = false
 
         classDefForEach { c ->
-            val isActivity = 
-                c.superclass == "Landroidx/appcompat/app/AppCompatActivity;" || 
-                c.superclass == "Landroidx/activity/ComponentActivity;" ||
-                c.superclass == "Landroid/app/Activity;"
+            val isApp = c.superclass == 
+                "Landroid/app/Application;" || 
+                c.superclass == 
+                "Landroidx/multidex/MultiDexApplication;"
 
-            if (isActivity || c.type.contains("MainActivity")) {
+            if (isApp) {
                 val mClass = mutableClassDefBy(c)
-                val onR = mClass.methods.find { 
-                    it.name == "onResume" 
+                val onC = mClass.methods.find { 
+                    it.name == "onCreate" 
                 }
 
-                if (onR != null && 
-                    onR.implementation != null) {
+                if (onC != null && 
+                    onC.implementation != null) {
                     
                     val smali = "invoke-static " +
                         "{p0}, Lapp/morphe/" +
-                        "patches/KeepAliveService;" +
-                        "->start(Landroid/content/" +
-                        "Context;)V"
-
-                    onR.addInstructions(0, smali)
-                    patched++
+                        "patches/KeepAliveManager;" +
+                        "->init(Landroid/app/" +
+                        "Application;)V"
+                    
+                    val insts = onC.implementation!!.instructions
+                    val retIdx = insts.indexOfLast { 
+                        it.opcode.name == "return-void" 
+                    }
+                    
+                    if (retIdx != -1) {
+                        // Injecting at the END to bypass MultiDex
+                        onC.addInstructions(retIdx, smali)
+                        patched = true
+                    }
                 }
             }
         }
-        if (patched > 0) log.info("Hooked $patched screens!")
+        if (patched) log.info("Global App Hook Injected!")
     }
 }
