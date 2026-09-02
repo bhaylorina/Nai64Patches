@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/bhaylorina/Nai64Patches/compare/1.3.2...1.3.3) (2026-09-02)
+
+### Bug Fixes
+
+* Refactor KeepAliveService for notification handling ([28f3f04](https://github.com/bhaylorina/Nai64Patches/commit/28f3f04d30ce87ec802e555ab312ad7f006910b8))
+* Update TriggerFGSPatch to hook onResume instead of onCreate ([b28e5de](https://github.com/bhaylorina/Nai64Patches/commit/b28e5debb83f28c773294620ab044308b3f6520e))
+
 ## [1.3.2](https://github.com/bhaylorina/Nai64Patches/compare/1.3.1...1.3.2) (2026-09-02)
 
 ### Bug Fixes
