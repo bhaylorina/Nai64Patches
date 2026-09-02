@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T18:04:16",
-  "description": "## [1.4.12](https://github.com/bhaylorina/Nai64Patches/compare/1.4.11...1.4.12) (2026-09-02)\n\n### Bug Fixes\n\n* Add ProGuard rule to keep KeepAliveService class ([a06404d](https://github.com/bhaylorina/Nai64Patches/commit/a06404d12a91d44abe4a0e3b1da3d60bc0297212))\n* Enhance KeepAliveService with delay and title update ([e7d89b7](https://github.com/bhaylorina/Nai64Patches/commit/e7d89b77a2b092afa16b0643fa21f644a86f6db7))\n* Refactor KeepAliveService by removing @Keep annotations ([f842715](https://github.com/bhaylorina/Nai64Patches/commit/f84271521f6f801f1c4c586aa393c0325734dd1b))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.12/patches-1.4.12.mpp",
+  "created_at": "2026-09-02T18:18:38",
+  "description": "## [1.4.13](https://github.com/bhaylorina/Nai64Patches/compare/1.4.12...1.4.13) (2026-09-02)\n\n### Bug Fixes\n\n* Refactor KeepAliveService for improved lifecycle handling ([54c07ab](https://github.com/bhaylorina/Nai64Patches/commit/54c07aba1350b93ce2407184be170661aa0b58cc))\n* Refactor TriggerFGSPatch for safe Application hooking ([5ea7439](https://github.com/bhaylorina/Nai64Patches/commit/5ea7439bdb5cd995535d3d63ee8b08c386276b94))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.13/patches-1.4.13.mpp",
   "signature_download_url": "",
-  "version": "1.4.12"
+  "version": "1.4.13"
 }
