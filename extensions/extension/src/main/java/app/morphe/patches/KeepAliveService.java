@@ -4,11 +4,34 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 
 public class KeepAliveService extends Service {
+
+    // FOOL PROGUARD: Dummy call so method isn't deleted
+    public KeepAliveService() {
+        super();
+        if (Build.VERSION.SDK_INT < 0) {
+            start(null); 
+        }
+    }
+
+    public static void start(Context ctx) {
+        try {
+            Intent i = new Intent(
+                ctx, KeepAliveService.class
+            );
+            if (Build.VERSION.SDK_INT >= 26) {
+                ctx.startForegroundService(i);
+            } else {
+                ctx.startService(i);
+            }
+        } catch (Exception e) {}
+    }
+
     @Override
     public IBinder onBind(Intent i) { 
         return null; 
@@ -40,7 +63,6 @@ public class KeepAliveService extends Service {
                     );
 
                 if (Build.VERSION.SDK_INT >= 34) {
-                    // 1 = FOREGROUND_SERVICE_TYPE_DATA_SYNC
                     startForeground(1, b.build(), 1); 
                 } else {
                     startForeground(1, b.build());
@@ -54,4 +76,3 @@ public class KeepAliveService extends Service {
         return START_STICKY;
     }
 }
-
