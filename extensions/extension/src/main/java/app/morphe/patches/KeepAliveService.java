@@ -8,10 +8,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
 
 public class KeepAliveService extends Service {
     
-    // THE LOCK: Prevents multiple screens from spamming the start command
     private static boolean isTriggered = false;
 
     public KeepAliveService() {
@@ -23,16 +25,21 @@ public class KeepAliveService extends Service {
         if (isTriggered || ctx == null) return;
         isTriggered = true; // Lock engaged
         
-        try {
-            Intent i = new Intent(ctx, KeepAliveService.class);
-            if (Build.VERSION.SDK_INT >= 26) {
-                ctx.startForegroundService(i);
-            } else {
-                ctx.startService(i);
+        // DELAY HACK: Wait 1 full second for app animation to finish
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            try {
+                Intent i = new Intent(ctx, KeepAliveService.class);
+                if (Build.VERSION.SDK_INT >= 26) {
+                    ctx.startForegroundService(i);
+                } else {
+                    ctx.startService(i);
+                }
+            } catch (Exception e) {
+                isTriggered = false; // Unlock so it can retry on next screen
+                // THE SNITCH: Will show exact error on screen if OS blocks it
+                Toast.makeText(ctx, "FGS Blocked: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
-        } catch (Exception e) {
-            isTriggered = false; // Unlock if OS blocked it, so next screen can retry
-        }
+        }, 1000); // 1000 milliseconds = 1 Second
     }
 
     @Override 
@@ -48,16 +55,20 @@ public class KeepAliveService extends Service {
 
                 Notification.Builder b = new Notification.Builder(this, "fgs_x")
                     .setContentTitle("X is Immortal")
-                    .setContentText("Network Locked (Listening...)")
+                    .setContentText("Network Locked & Active")
                     .setSmallIcon(android.R.drawable.ic_menu_info_details);
 
                 if (Build.VERSION.SDK_INT >= 34) {
-                    startForeground(1001, b.build(), 512); // REMOTE_MESSAGING
+                    startForeground(1001, b.build(), 512); // REMOTE_MESSAGING tag
                 } else {
                     startForeground(1001, b.build());
                 }
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            new Handler(Looper.getMainLooper()).post(() -> 
+                Toast.makeText(this, "Notification Error: " + e.getMessage(), Toast.LENGTH_LONG).show()
+            );
+        }
         
         return START_STICKY;
     }
