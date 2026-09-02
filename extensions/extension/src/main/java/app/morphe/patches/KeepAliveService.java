@@ -1,5 +1,6 @@
 package app.morphe.patches;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.app.Notification;
@@ -19,12 +20,10 @@ import android.widget.Toast;
 public class KeepAliveService extends Service {
     private static boolean isTriggered = false;
 
-    // Triggered safely by the XApplication hook
     public static void init(Application app) {
         if (isTriggered) return;
         isTriggered = true;
 
-        // 1.5 Second Delay ensures Android 16 grants FGS token
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             try {
                 Context ctx = app.getApplicationContext();
@@ -35,7 +34,7 @@ public class KeepAliveService extends Service {
                     ctx.startService(i);
                 }
             } catch (Exception e) {
-                isTriggered = false; // Reset on failure
+                isTriggered = false;
                 Toast.makeText(app, "FGS Blocked: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         }, 1500);
@@ -43,6 +42,7 @@ public class KeepAliveService extends Service {
 
     @Override public IBinder onBind(Intent i) { return null; }
 
+    @SuppressLint("ForegroundServiceType")
     @Override
     public int onStartCommand(Intent i, int f, int s) {
         try {
