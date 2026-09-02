@@ -1,3 +1,17 @@
+## [1.4.16](https://github.com/bhaylorina/Nai64Patches/compare/1.4.15...1.4.16) (2026-09-02)
+
+### Bug Fixes
+
+* Add extension configuration to build.gradle.kts ([5d31584](https://github.com/bhaylorina/Nai64Patches/commit/5d315844cdc54e2de49b1e2b4bd56b01f0b37c1c))
+* Add GitHub Actions workflow for debugging extension ([3759927](https://github.com/bhaylorina/Nai64Patches/commit/37599271b40eb3554f5ef774b2aa642459a2c851))
+* Add SuppressLint annotation and clean up code ([8fc5fa5](https://github.com/bhaylorina/Nai64Patches/commit/8fc5fa5c6a656581f3d8af378259d898e51f2147))
+* Change Morphe Extensions library version to 1.6.0 ([55efa86](https://github.com/bhaylorina/Nai64Patches/commit/55efa86a507a8716da4af40e228e2c36acf959b9))
+* Import sharedExtensionPatch for KeepAliveService packing ([7f44cf5](https://github.com/bhaylorina/Nai64Patches/commit/7f44cf57957fa6776280d1fb6d7f9a014e1dd1c0))
+* Refactor build.gradle.kts for extension configuration ([54cfd73](https://github.com/bhaylorina/Nai64Patches/commit/54cfd7356875072caf4ae215530363dc66af54d1))
+* Refactor debug extension workflow for clarity ([85ee1f6](https://github.com/bhaylorina/Nai64Patches/commit/85ee1f6efaee9bc5cbcd7a4a2f13dd1962f9b07a))
+* Refactor KeepAliveService for notification channel and foreground service ([c2640fa](https://github.com/bhaylorina/Nai64Patches/commit/c2640fabe706863f544cf82098bf12692c35a10a))
+* Refactor TriggerFGSPatch by removing sharedExtensionPatch ([a5d2352](https://github.com/bhaylorina/Nai64Patches/commit/a5d23524cf7b0a88416162d3b2de15a0eab1e6ee))
+
 ## [1.4.15](https://github.com/bhaylorina/Nai64Patches/compare/1.4.14...1.4.15) (2026-09-02)
 
 ### Bug Fixes
