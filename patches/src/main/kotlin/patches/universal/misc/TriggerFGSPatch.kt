@@ -7,7 +7,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val triggerFGSPatch = bytecodePatch(
     name = "Trigger Immortal FGS",
-    description = "Global Application Hook",
+    description = "Global Application Hook via Service",
     default = false,
 ) {
     execute {
@@ -15,39 +15,27 @@ val triggerFGSPatch = bytecodePatch(
         var patched = false
 
         classDefForEach { c ->
-            val isApp = c.superclass == 
-                "Landroid/app/Application;" || 
-                c.superclass == 
-                "Landroidx/multidex/MultiDexApplication;"
+            val isApp = c.superclass == "Landroid/app/Application;" || 
+                        c.superclass == "Landroidx/multidex/MultiDexApplication;"
 
             if (isApp) {
                 val mClass = mutableClassDefBy(c)
-                val onC = mClass.methods.find { 
-                    it.name == "onCreate" 
-                }
+                val onC = mClass.methods.find { it.name == "onCreate" }
 
-                if (onC != null && 
-                    onC.implementation != null) {
-                    
-                    val smali = "invoke-static " +
-                        "{p0}, Lapp/morphe/" +
-                        "patches/KeepAliveManager;" +
-                        "->init(Landroid/app/" +
-                        "Application;)V"
+                if (onC != null && onC.implementation != null) {
+                    // Pointing directly to KeepAliveService now
+                    val smali = "invoke-static {p0}, Lapp/morphe/patches/KeepAliveService;->init(Landroid/app/Application;)V"
                     
                     val insts = onC.implementation!!.instructions
-                    val retIdx = insts.indexOfLast { 
-                        it.opcode.name == "return-void" 
-                    }
+                    val retIdx = insts.indexOfLast { it.opcode.name == "return-void" }
                     
                     if (retIdx != -1) {
-                        // Injecting at the END to bypass MultiDex
                         onC.addInstructions(retIdx, smali)
                         patched = true
                     }
                 }
             }
         }
-        if (patched) log.info("Global App Hook Injected!")
+        if (patched) log.info("Global App Hook Injected Successfully!")
     }
 }
