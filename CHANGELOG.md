@@ -1,3 +1,10 @@
+## [1.4.8](https://github.com/bhaylorina/Nai64Patches/compare/1.4.7...1.4.8) (2026-09-02)
+
+### Bug Fixes
+
+* Add newline at end of KeepAliveInitProvider.java ([92d7c98](https://github.com/bhaylorina/Nai64Patches/commit/92d7c98185d65ab25423802831a786f5175fad18))
+* Add TriggerFGSPatch to protect from Shrinker ([dbffa9d](https://github.com/bhaylorina/Nai64Patches/commit/dbffa9d7f7e61de493dda5aabfa71e98a5367cd7))
+
 ## [1.4.7](https://github.com/bhaylorina/Nai64Patches/compare/1.4.6...1.4.7) (2026-09-02)
 
 ### Bug Fixes
