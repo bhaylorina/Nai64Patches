@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/bhaylorina/Nai64Patches/compare/1.2.0...1.2.1) (2026-09-02)
+
+### Bug Fixes
+
+* convert java to smali service ([83eff12](https://github.com/bhaylorina/Nai64Patches/commit/83eff12547459de778add88dffd42f2ac34950a5))
+* convert java to smali service ([2064776](https://github.com/bhaylorina/Nai64Patches/commit/20647768f2029daaa8dd62d623f0347eceb6dc55))
+
 ## [1.2.0](https://github.com/bhaylorina/Nai64Patches/compare/1.1.0...1.2.0) (2026-09-02)
 
 ### Bug Fixes

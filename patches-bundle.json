@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T06:57:48",
-  "description": "## [1.2.0](https://github.com/bhaylorina/Nai64Patches/compare/1.1.0...1.2.0) (2026-09-02)\n\n### Bug Fixes\n\n* make trigger class mutable ([559320a](https://github.com/bhaylorina/Nai64Patches/commit/559320abf850715789fa9dca8d0c684e6d3090e3))\n\n### New Features\n\n* add active foreground service and trigger ([80f6bc6](https://github.com/bhaylorina/Nai64Patches/commit/80f6bc68454e461b7f8ac0ed5db56d6c7d9ea5c6))\n* Add ServiceStarter class to manage service lifecycle ([f63f9a8](https://github.com/bhaylorina/Nai64Patches/commit/f63f9a8db430d4264ddb6bdbd7db225986a76aca))\n* add universal active background service ([7d71921](https://github.com/bhaylorina/Nai64Patches/commit/7d7192105c0d72245f69f8d22132c3fa19e23b88))\n* add universal active background service ([10b9ced](https://github.com/bhaylorina/Nai64Patches/commit/10b9ced8786b57be21b67cc59fa6b7fcc0825f7a))\n* add universal active background service2 ([7a4c9ae](https://github.com/bhaylorina/Nai64Patches/commit/7a4c9ae1435dde3c109953d6e5a3bba09ca49d9c))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.2.0/patches-1.2.0.mpp",
+  "created_at": "2026-09-02T07:11:12",
+  "description": "## [1.2.1](https://github.com/bhaylorina/Nai64Patches/compare/1.2.0...1.2.1) (2026-09-02)\n\n### Bug Fixes\n\n* convert java to smali service ([83eff12](https://github.com/bhaylorina/Nai64Patches/commit/83eff12547459de778add88dffd42f2ac34950a5))\n* convert java to smali service ([2064776](https://github.com/bhaylorina/Nai64Patches/commit/20647768f2029daaa8dd62d623f0347eceb6dc55))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.2.1/patches-1.2.1.mpp",
   "signature_download_url": "",
-  "version": "1.2.0"
+  "version": "1.2.1"
 }
