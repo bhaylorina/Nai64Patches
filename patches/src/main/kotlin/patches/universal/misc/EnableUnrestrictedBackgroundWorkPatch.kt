@@ -32,6 +32,29 @@ val enableUnrestrictedBackgroundWorkPatch = bytecodePatch(
         }
         var patched = 0
         classDefForEach { classDef ->
+            
+            // --- MEMORY SAVER: Read-only Pre-Check ---
+            var needsPatching = false
+            for (method in classDef.methods) {
+                val impl = method.implementation ?: continue
+                for (insn in impl.instructions) {
+                    val ref = (insn as? ReferenceInstruction)?.reference as? MethodReference ?: continue
+                    val isJobIdle = ref.definingClass == "Landroid/app/job/JobInfo\$Builder;" && ref.name == "setRequiresDeviceIdle" && ref.returnType == "Landroid/app/job/JobInfo\$Builder;"
+                    val isJobCharging = ref.definingClass == "Landroid/app/job/JobInfo\$Builder;" && ref.name == "setRequiresCharging" && ref.returnType == "Landroid/app/job/JobInfo\$Builder;"
+                    val isWorkIdle = ref.definingClass == "Landroidx/work/WorkRequest\$Builder;" && ref.name == "setRequiresDeviceIdle" && ref.parameterTypes.size == 1
+                    
+                    if (isJobIdle || isJobCharging || isWorkIdle) {
+                        needsPatching = true
+                        break
+                    }
+                }
+                if (needsPatching) break
+            }
+            
+            // If the target methods aren't in this class, skip it to save RAM
+            if (!needsPatching) return@classDefForEach
+            
+            // --- MUTATION: Only runs on the exact classes that need editing ---
             val mutableClass = mutableClassDefBy(classDef)
             for (method in mutableClass.methods) {
                 val impl = method.implementation ?: continue
