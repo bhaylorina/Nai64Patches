@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T14:36:48",
-  "description": "## [1.4.1](https://github.com/bhaylorina/Nai64Patches/compare/1.4.0...1.4.1) (2026-09-02)\n\n### Bug Fixes\n\n* Initialize KeepAliveManager in KeepAliveService ([4262a96](https://github.com/bhaylorina/Nai64Patches/commit/4262a96c048295d51b47a1c3682034d6c9265c1c))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.1/patches-1.4.1.mpp",
+  "created_at": "2026-09-02T14:48:06",
+  "description": "## [1.4.2](https://github.com/bhaylorina/Nai64Patches/compare/1.4.1...1.4.2) (2026-09-02)\n\n### Bug Fixes\n\n* Refactor KeepAliveService for improved lifecycle handling ([c06f8ef](https://github.com/bhaylorina/Nai64Patches/commit/c06f8ef395fe316097edca6d0d28f5a801322786))\n* Update TriggerFGSPatch description and logging message ([ff3ea8a](https://github.com/bhaylorina/Nai64Patches/commit/ff3ea8aa1bbd9e5379550858b3c1958b32f6f8aa))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.2/patches-1.4.2.mpp",
   "signature_download_url": "",
-  "version": "1.4.1"
+  "version": "1.4.2"
 }

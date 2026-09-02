@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/bhaylorina/Nai64Patches/compare/1.4.1...1.4.2) (2026-09-02)
+
+### Bug Fixes
+
+* Refactor KeepAliveService for improved lifecycle handling ([c06f8ef](https://github.com/bhaylorina/Nai64Patches/commit/c06f8ef395fe316097edca6d0d28f5a801322786))
+* Update TriggerFGSPatch description and logging message ([ff3ea8a](https://github.com/bhaylorina/Nai64Patches/commit/ff3ea8aa1bbd9e5379550858b3c1958b32f6f8aa))
+
 ## [1.4.1](https://github.com/bhaylorina/Nai64Patches/compare/1.4.0...1.4.1) (2026-09-02)
 
 ### Bug Fixes
