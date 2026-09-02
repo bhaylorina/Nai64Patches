@@ -11,34 +11,40 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.IBinder;
 import android.widget.Toast;
+import androidx.annotation.Keep;
 
+// THE OVERRIDE: Tells R8 Shrinker to NEVER delete this file during compilation
+@Keep
 public class KeepAliveService extends Service {
+    @Keep
     private static boolean running = false;
 
+    @Keep
     public static void trigger(Context ctx) {
         if (running || ctx == null) return;
         running = true;
         
-        // Use App Context so the request is never destroyed by Activity changes
+        // App context ensures the FGS request isn't killed if Splash Screen closes
         Context appCtx = ctx.getApplicationContext();
         
-        try {
-            Intent i = new Intent(appCtx, KeepAliveService.class);
-            if (Build.VERSION.SDK_INT >= 26) {
-                appCtx.startForegroundService(i);
-            } else {
-                appCtx.startService(i);
+        // 1.5s delay bypasses Android 16's strict "Animation-Complete" requirement
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            try {
+                Intent i = new Intent(appCtx, KeepAliveService.class);
+                if (Build.VERSION.SDK_INT >= 26) {
+                    appCtx.startForegroundService(i);
+                } else {
+                    appCtx.startService(i);
+                }
+            } catch (Exception e) {
+                running = false; 
+                Toast.makeText(appCtx, "FGS Blocked: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
-        } catch (Exception e) {
-            running = false; // Reset on fail
-            // SNITCH 1: Tells you if OS completely blocked the start command
-            new Handler(Looper.getMainLooper()).post(() -> 
-                Toast.makeText(appCtx, "Start Error: " + e.getMessage(), Toast.LENGTH_LONG).show()
-            );
-        }
+        }, 1500); 
     }
 
-    @Override public IBinder onBind(Intent intent) { return null; }
+    @Override 
+    public IBinder onBind(Intent intent) { return null; }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -49,7 +55,7 @@ public class KeepAliveService extends Service {
                 if (nm != null) nm.createNotificationChannel(ch);
 
                 Notification.Builder b = new Notification.Builder(this, "fgs_immortal")
-                    .setContentTitle("X Immortal")
+                    .setContentTitle("X is Immortal")
                     .setContentText("Background Sync Active")
                     .setSmallIcon(android.R.drawable.ic_menu_info_details);
 
@@ -59,12 +65,8 @@ public class KeepAliveService extends Service {
                     startForeground(1001, b.build());
                 }
             }
-        } catch (Exception e) {
-            // SNITCH 2: Tells you if the Notification itself was rejected by API 36
-            new Handler(Looper.getMainLooper()).post(() -> 
-                Toast.makeText(this, "FGS Crash: " + e.getMessage(), Toast.LENGTH_LONG).show()
-            );
-        }
+        } catch (Exception e) {}
+        
         return START_STICKY;
     }
 }
