@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T07:11:12",
-  "description": "## [1.2.1](https://github.com/bhaylorina/Nai64Patches/compare/1.2.0...1.2.1) (2026-09-02)\n\n### Bug Fixes\n\n* convert java to smali service ([83eff12](https://github.com/bhaylorina/Nai64Patches/commit/83eff12547459de778add88dffd42f2ac34950a5))\n* convert java to smali service ([2064776](https://github.com/bhaylorina/Nai64Patches/commit/20647768f2029daaa8dd62d623f0347eceb6dc55))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.2.1/patches-1.2.1.mpp",
+  "created_at": "2026-09-02T07:34:39",
+  "description": "## [1.2.2](https://github.com/bhaylorina/Nai64Patches/compare/1.2.1...1.2.2) (2026-09-02)\n\n### Bug Fixes\n\n* Implement memory-saving pre-check for patching ([f84b102](https://github.com/bhaylorina/Nai64Patches/commit/f84b102af5bf0c708551300c242c9adc88c5e0ea))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.2.2/patches-1.2.2.mpp",
   "signature_download_url": "",
-  "version": "1.2.1"
+  "version": "1.2.2"
 }

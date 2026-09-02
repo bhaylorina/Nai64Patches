@@ -1,3 +1,9 @@
+## [1.2.2](https://github.com/bhaylorina/Nai64Patches/compare/1.2.1...1.2.2) (2026-09-02)
+
+### Bug Fixes
+
+* Implement memory-saving pre-check for patching ([f84b102](https://github.com/bhaylorina/Nai64Patches/commit/f84b102af5bf0c708551300c242c9adc88c5e0ea))
+
 ## [1.2.1](https://github.com/bhaylorina/Nai64Patches/compare/1.2.0...1.2.1) (2026-09-02)
 
 ### Bug Fixes
