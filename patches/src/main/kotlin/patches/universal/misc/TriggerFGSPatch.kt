@@ -7,36 +7,36 @@ import java.util.logging.Logger
 @Suppress("unused")
 val triggerFGSPatch = bytecodePatch(
     name = "Trigger Immortal FGS",
-    description = "Protects code from Shrinker",
-    default = false,
+    description = "Safe Application End-Hook",
+    default = true,
 ) {
     execute {
         val log = Logger.getLogger(this::class.java.name)
-        var count = 0
-
-        val validSuperclasses = listOf(
-            "Landroidx/appcompat/app/AppCompatActivity;",
-            "Landroidx/activity/ComponentActivity;",
-            "Landroidx/fragment/app/FragmentActivity;",
-            "Landroid/app/Activity;"
-        )
+        var patched = false
 
         classDefForEach { c ->
-            if (c.superclass in validSuperclasses) {
-                val mClass = mutableClassDefBy(c)
-                val targetMethod = mClass.methods.find { it.name == "onResume" }
+            val isApp = c.superclass == "Landroid/app/Application;" || 
+                        c.superclass == "Landroidx/multidex/MultiDexApplication;"
 
-                if (targetMethod != null && targetMethod.implementation != null) {
-                    try {
-                        // FAKE CALL: Only exists to keep our Java files in the APK
-                        val smali = "invoke-static {}, Lapp/morphe/patches/KeepAliveInitProvider;->anchor()V"
-                        targetMethod.addInstructions(0, smali)
-                        count++
-                    } catch (e: Exception) {}
+            if (isApp) {
+                val mClass = mutableClassDefBy(c)
+                val onC = mClass.methods.find { it.name == "onCreate" }
+
+                if (onC != null && onC.implementation != null) {
+                    
+                    val smali = "invoke-static {p0}, Lapp/morphe/patches/KeepAliveService;->init(Landroid/app/Application;)V"
+                    
+                    val insts = onC.implementation!!.instructions
+                    // Find the EXACT end of the method
+                    val retIdx = insts.indexOfLast { it.opcode.name == "return-void" }
+                    
+                    if (retIdx != -1) {
+                        onC.addInstructions(retIdx, smali)
+                        patched = true
+                    }
                 }
             }
         }
-        log.info("Anchor Hit: Protected across $count screens!")
+        if (patched) log.info("Application End-Hook Injected Safely!")
     }
 }
-
