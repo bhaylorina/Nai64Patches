@@ -7,7 +7,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val triggerFGSPatch = bytecodePatch(
     name = "Trigger Immortal FGS",
-    description = "Global Application Hook via Service",
+    description = "Sniper Hook for MainActivity",
     default = false,
 ) {
     execute {
@@ -15,27 +15,22 @@ val triggerFGSPatch = bytecodePatch(
         var patched = false
 
         classDefForEach { c ->
-            val isApp = c.superclass == "Landroid/app/Application;" || 
-                        c.superclass == "Landroidx/multidex/MultiDexApplication;"
-
-            if (isApp) {
+            // EXACT Target found from your System Logcat!
+            if (c.type == "Lcom/x/android/main/MainActivity;") {
                 val mClass = mutableClassDefBy(c)
-                val onC = mClass.methods.find { it.name == "onCreate" }
+                val onR = mClass.methods.find { it.name == "onResume" }
 
-                if (onC != null && onC.implementation != null) {
-                    // Pointing directly to KeepAliveService now
-                    val smali = "invoke-static {p0}, Lapp/morphe/patches/KeepAliveService;->init(Landroid/app/Application;)V"
+                if (onR != null && onR.implementation != null) {
                     
-                    val insts = onC.implementation!!.instructions
-                    val retIdx = insts.indexOfLast { it.opcode.name == "return-void" }
+                    val smali = "invoke-static {p0}, Lapp/morphe/" +
+                        "patches/KeepAliveService;" +
+                        "->start(Landroid/content/Context;)V"
                     
-                    if (retIdx != -1) {
-                        onC.addInstructions(retIdx, smali)
-                        patched = true
-                    }
+                    onR.addInstructions(0, smali)
+                    patched = true
                 }
             }
         }
-        if (patched) log.info("Global App Hook Injected Successfully!")
+        if (patched) log.info("Sniper Hit: MainActivity Hooked!")
     }
 }
