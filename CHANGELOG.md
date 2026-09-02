@@ -1,3 +1,11 @@
+## [1.4.12](https://github.com/bhaylorina/Nai64Patches/compare/1.4.11...1.4.12) (2026-09-02)
+
+### Bug Fixes
+
+* Add ProGuard rule to keep KeepAliveService class ([a06404d](https://github.com/bhaylorina/Nai64Patches/commit/a06404d12a91d44abe4a0e3b1da3d60bc0297212))
+* Enhance KeepAliveService with delay and title update ([e7d89b7](https://github.com/bhaylorina/Nai64Patches/commit/e7d89b77a2b092afa16b0643fa21f644a86f6db7))
+* Refactor KeepAliveService by removing @Keep annotations ([f842715](https://github.com/bhaylorina/Nai64Patches/commit/f84271521f6f801f1c4c586aa393c0325734dd1b))
+
 ## [1.4.11](https://github.com/bhaylorina/Nai64Patches/compare/1.4.10...1.4.11) (2026-09-02)
 
 ### Bug Fixes
