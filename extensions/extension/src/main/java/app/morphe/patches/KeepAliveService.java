@@ -11,23 +11,16 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.IBinder;
 import android.widget.Toast;
-import androidx.annotation.Keep;
 
-// THE OVERRIDE: Tells R8 Shrinker to NEVER delete this file during compilation
-@Keep
 public class KeepAliveService extends Service {
-    @Keep
     private static boolean running = false;
 
-    @Keep
     public static void trigger(Context ctx) {
         if (running || ctx == null) return;
         running = true;
         
-        // App context ensures the FGS request isn't killed if Splash Screen closes
         Context appCtx = ctx.getApplicationContext();
         
-        // 1.5s delay bypasses Android 16's strict "Animation-Complete" requirement
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             try {
                 Intent i = new Intent(appCtx, KeepAliveService.class);
@@ -60,7 +53,7 @@ public class KeepAliveService extends Service {
                     .setSmallIcon(android.R.drawable.ic_menu_info_details);
 
                 if (Build.VERSION.SDK_INT >= 34) {
-                    startForeground(1001, b.build(), 512); // REMOTE_MESSAGING
+                    startForeground(1001, b.build(), 512);
                 } else {
                     startForeground(1001, b.build());
                 }
