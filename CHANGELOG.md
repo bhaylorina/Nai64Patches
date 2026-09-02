@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/bhaylorina/Nai64Patches/compare/1.4.0...1.4.1) (2026-09-02)
+
+### Bug Fixes
+
+* Initialize KeepAliveManager in KeepAliveService ([4262a96](https://github.com/bhaylorina/Nai64Patches/commit/4262a96c048295d51b47a1c3682034d6c9265c1c))
+
 ## [1.4.0](https://github.com/bhaylorina/Nai64Patches/compare/1.3.4...1.4.0) (2026-09-02)
 
 ### Bug Fixes
