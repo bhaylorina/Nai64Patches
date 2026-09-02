@@ -1,3 +1,11 @@
+## [1.4.9](https://github.com/bhaylorina/Nai64Patches/compare/1.4.8...1.4.9) (2026-09-02)
+
+### Bug Fixes
+
+* Implement activity lifecycle callbacks for service ([bb17661](https://github.com/bhaylorina/Nai64Patches/commit/bb17661e0c357d40ce4907da3bd86ac462d06405))
+* Update ActiveManifestPatch to add FGS Permissions ([1c0ffea](https://github.com/bhaylorina/Nai64Patches/commit/1c0ffeaa7468b663e184e1eb3e4e49f49987c4a8))
+* Update TriggerFGSPatch to inject Application End-Hook ([c374529](https://github.com/bhaylorina/Nai64Patches/commit/c3745296890286ee9ba63339ef37ffdcc2ee2ece))
+
 ## [1.4.8](https://github.com/bhaylorina/Nai64Patches/compare/1.4.7...1.4.8) (2026-09-02)
 
 ### Bug Fixes

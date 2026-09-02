@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "patches": [
     {
       "name": "Skip Consent Popup",
@@ -1159,7 +1159,7 @@
     },
     {
       "name": "Add FGS Permissions",
-      "description": "Injects FGS and God-Mode Provider",
+      "description": "Injects FGS Permissions",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
@@ -4492,7 +4492,7 @@
     },
     {
       "name": "Trigger Immortal FGS",
-      "description": "Protects code from Shrinker",
+      "description": "Safe Application End-Hook",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
