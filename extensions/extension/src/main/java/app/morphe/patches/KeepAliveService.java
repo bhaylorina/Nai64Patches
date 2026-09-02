@@ -6,6 +6,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,37 +18,26 @@ import android.widget.Toast;
 public class KeepAliveService extends Service {
     private static boolean isTriggered = false;
 
-    // Called safely from the Base Application ClassLoader
+    // Triggered safely by the XApplication hook
     public static void init(Application app) {
-        app.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
-            @Override
-            public void onActivityResumed(Activity a) {
-                if (isTriggered) return;
-                isTriggered = true; 
+        if (isTriggered) return;
+        isTriggered = true; 
 
-                // 1.5 Second Delay for Android 16 UI settlement
-                new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                    try {
-                        Intent i = new Intent(a.getApplicationContext(), KeepAliveService.class);
-                        if (Build.VERSION.SDK_INT >= 26) {
-                            a.getApplicationContext().startForegroundService(i);
-                        } else {
-                            a.getApplicationContext().startService(i);
-                        }
-                    } catch (Exception e) {
-                        isTriggered = false; // Reset on failure
-                        Toast.makeText(a, "FGS Blocked: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }, 1500);
+        // 1.5 Second Delay ensures Android 16 grants FGS token
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            try {
+                Context ctx = app.getApplicationContext();
+                Intent i = new Intent(ctx, KeepAliveService.class);
+                if (Build.VERSION.SDK_INT >= 26) {
+                    ctx.startForegroundService(i);
+                } else {
+                    ctx.startService(i);
+                }
+            } catch (Exception e) {
+                isTriggered = false; // Reset on failure
+                Toast.makeText(app, "FGS Blocked: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
-
-            @Override public void onActivityCreated(Activity a, Bundle b) {}
-            @Override public void onActivityStarted(Activity a) {}
-            @Override public void onActivityPaused(Activity a) {}
-            @Override public void onActivityStopped(Activity a) {}
-            @Override public void onActivitySaveInstanceState(Activity a, Bundle b) {}
-            @Override public void onActivityDestroyed(Activity a) {}
-        });
+        }, 1500);
     }
 
     @Override public IBinder onBind(Intent i) { return null; }
