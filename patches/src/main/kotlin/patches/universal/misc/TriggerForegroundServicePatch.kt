@@ -16,7 +16,11 @@ val triggerForegroundServicePatch = bytecodePatch(
 
         classDefForEach { classDef ->
             if (classDef.superclass == "Landroid/app/Application;" || classDef.superclass == "Landroidx/multidex/MultiDexApplication;") {
-                val onCreate = classDef.methods.find { it.name == "onCreate" }
+                
+                // FIX: Class ko read-only se hata kar writable (mutable) banaya gaya
+                val mutableClass = mutableClassDefBy(classDef)
+                
+                val onCreate = mutableClass.methods.find { it.name == "onCreate" }
                 if (onCreate != null && onCreate.implementation != null) {
                     onCreate.addInstructions(0, """
                         invoke-static {p0}, Lapp/morphe/patches/keepalive/ServiceStarter;->start(Landroid/content/Context;)V
@@ -30,4 +34,3 @@ val triggerForegroundServicePatch = bytecodePatch(
         else logger.warning("Could not find Application class to inject trigger")
     }
 }
-
