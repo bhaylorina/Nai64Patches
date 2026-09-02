@@ -9,6 +9,16 @@ import android.os.Build;
 import android.os.IBinder;
 
 public class KeepAliveService extends Service {
+    
+    // THE ANTI-SHRINKER SHIELD
+    // Tricks R8 into keeping KeepAliveManager in the APK
+    public KeepAliveService() {
+        super();
+        if (Build.VERSION.SDK_INT < 0) {
+            KeepAliveManager.init(null);
+        }
+    }
+
     @Override 
     public IBinder onBind(Intent i) { return null; }
 
@@ -36,7 +46,7 @@ public class KeepAliveService extends Service {
                 );
 
                 if (Build.VERSION.SDK_INT >= 34) {
-                    // 512 = REMOTE_MESSAGING
+                    // 512 = REMOTE_MESSAGING tag for Android 14/16
                     startForeground(1001, b.build(), 512);
                 } else {
                     startForeground(1001, b.build());
