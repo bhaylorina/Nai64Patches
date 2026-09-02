@@ -7,24 +7,34 @@ import java.util.logging.Logger
 @Suppress("unused")
 val triggerFGSPatch = bytecodePatch(
     name = "Trigger Immortal FGS",
-    description = "Starts FGS safely",
+    description = "Starts FGS safely from Activity",
     default = false,
 ) {
     execute {
+        val log = Logger.getLogger(
+            this::class.java.name
+        )
         var patched = false
-        classDefForEach { c ->
-            val isApp = c.superclass == 
-                "Landroid/app/Application;" || 
-                c.superclass == 
-                "Landroidx/multidex/MultiDexApplication;"
 
-            if (isApp) {
+        classDefForEach { c ->
+            // Hooking into Activity ensures MultiDex 
+            // is fully loaded before our code runs!
+            val targets = listOf(
+                "Landroidx/activity/" +
+                "ComponentActivity;",
+                "Landroidx/appcompat/app/" +
+                "AppCompatActivity;"
+            )
+
+            if (c.type in targets) {
                 val mClass = mutableClassDefBy(c)
                 val onC = mClass.methods.find { 
                     it.name == "onCreate" 
                 }
 
-                if (onC != null && onC.implementation != null) {
+                if (onC != null && 
+                    onC.implementation != null) {
+                    
                     val smali = "invoke-static " +
                         "{p0}, Lapp/morphe/" +
                         "patches/KeepAliveService;" +
@@ -36,8 +46,6 @@ val triggerFGSPatch = bytecodePatch(
                 }
             }
         }
-        if (patched) Logger.getLogger(
-            this::class.java.name
-        ).info("FGS Triggered")
+        if (patched) log.info("FGS Hooked!")
     }
 }
