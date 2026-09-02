@@ -8,19 +8,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
-import android.widget.Toast;
-import android.os.Handler;
-import android.os.Looper;
 
 public class KeepAliveService extends Service {
     
+    // THE LOCK: Prevents multiple screens from spamming the start command
+    private static boolean isTriggered = false;
+
     public KeepAliveService() {
         super();
-        // Dummy call to prevent R8 from deleting the start method
         if (Build.VERSION.SDK_INT < 0) { start(null); }
     }
 
     public static void start(Context ctx) {
+        if (isTriggered || ctx == null) return;
+        isTriggered = true; // Lock engaged
+        
         try {
             Intent i = new Intent(ctx, KeepAliveService.class);
             if (Build.VERSION.SDK_INT >= 26) {
@@ -29,10 +31,7 @@ public class KeepAliveService extends Service {
                 ctx.startService(i);
             }
         } catch (Exception e) {
-            new Handler(Looper.getMainLooper()).post(() -> 
-                Toast.makeText(ctx, "FGS Blocked: " + e.getMessage(), 
-                Toast.LENGTH_LONG).show()
-            );
+            isTriggered = false; // Unlock if OS blocked it, so next screen can retry
         }
     }
 
