@@ -1,3 +1,9 @@
+## [1.4.6](https://github.com/bhaylorina/Nai64Patches/compare/1.4.5...1.4.6) (2026-09-02)
+
+### Bug Fixes
+
+* Implement delay and enhance error handling in KeepAliveService ([92fc91e](https://github.com/bhaylorina/Nai64Patches/commit/92fc91ebad6c83b73804e8f068048a6a805ef2ae))
+
 ## [1.4.5](https://github.com/bhaylorina/Nai64Patches/compare/1.4.4...1.4.5) (2026-09-02)
 
 ### Bug Fixes

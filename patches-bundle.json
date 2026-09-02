@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T15:51:18",
-  "description": "## [1.4.5](https://github.com/bhaylorina/Nai64Patches/compare/1.4.4...1.4.5) (2026-09-02)\n\n### Bug Fixes\n\n* Update TriggerFGSPatch description and logic ([98cd1c9](https://github.com/bhaylorina/Nai64Patches/commit/98cd1c9b5e9cb6935e37c3570999c68df4d90b6a))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.5/patches-1.4.5.mpp",
+  "created_at": "2026-09-02T16:18:30",
+  "description": "## [1.4.6](https://github.com/bhaylorina/Nai64Patches/compare/1.4.5...1.4.6) (2026-09-02)\n\n### Bug Fixes\n\n* Implement delay and enhance error handling in KeepAliveService ([92fc91e](https://github.com/bhaylorina/Nai64Patches/commit/92fc91ebad6c83b73804e8f068048a6a805ef2ae))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.6/patches-1.4.6.mpp",
   "signature_download_url": "",
-  "version": "1.4.5"
+  "version": "1.4.6"
 }
