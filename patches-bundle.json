@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T18:18:38",
-  "description": "## [1.4.13](https://github.com/bhaylorina/Nai64Patches/compare/1.4.12...1.4.13) (2026-09-02)\n\n### Bug Fixes\n\n* Refactor KeepAliveService for improved lifecycle handling ([54c07ab](https://github.com/bhaylorina/Nai64Patches/commit/54c07aba1350b93ce2407184be170661aa0b58cc))\n* Refactor TriggerFGSPatch for safe Application hooking ([5ea7439](https://github.com/bhaylorina/Nai64Patches/commit/5ea7439bdb5cd995535d3d63ee8b08c386276b94))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.13/patches-1.4.13.mpp",
+  "created_at": "2026-09-02T18:35:10",
+  "description": "## [1.4.14](https://github.com/bhaylorina/Nai64Patches/compare/1.4.13...1.4.14) (2026-09-02)\n\n### Bug Fixes\n\n* Add KeepAliveService to AndroidManifest ([6ca5366](https://github.com/bhaylorina/Nai64Patches/commit/6ca5366ffcd4e28040e9fb3bfab06b3e628c0a0e))\n* Refactor KeepAliveService initialization method ([b630823](https://github.com/bhaylorina/Nai64Patches/commit/b630823c3c8cb158b750d8b2f34f611474a483ba))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.14/patches-1.4.14.mpp",
   "signature_download_url": "",
-  "version": "1.4.13"
+  "version": "1.4.14"
 }

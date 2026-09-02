@@ -1,3 +1,10 @@
+## [1.4.14](https://github.com/bhaylorina/Nai64Patches/compare/1.4.13...1.4.14) (2026-09-02)
+
+### Bug Fixes
+
+* Add KeepAliveService to AndroidManifest ([6ca5366](https://github.com/bhaylorina/Nai64Patches/commit/6ca5366ffcd4e28040e9fb3bfab06b3e628c0a0e))
+* Refactor KeepAliveService initialization method ([b630823](https://github.com/bhaylorina/Nai64Patches/commit/b630823c3c8cb158b750d8b2f34f611474a483ba))
+
 ## [1.4.13](https://github.com/bhaylorina/Nai64Patches/compare/1.4.12...1.4.13) (2026-09-02)
 
 ### Bug Fixes
