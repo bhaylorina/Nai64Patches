@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/bhaylorina/Nai64Patches/compare/1.4.2...1.4.3) (2026-09-02)
+
+### Bug Fixes
+
+* Refactor KeepAliveService and update notification text ([c0276c0](https://github.com/bhaylorina/Nai64Patches/commit/c0276c0b38cc1116bb3e759a7c2d497f5efeb68f))
+* Update TriggerFGSPatch description and logic ([7d3fce3](https://github.com/bhaylorina/Nai64Patches/commit/7d3fce3b4a7010936ded4945efbfb1a7c0b0e397))
+
 ## [1.4.2](https://github.com/bhaylorina/Nai64Patches/compare/1.4.1...1.4.2) (2026-09-02)
 
 ### Bug Fixes
