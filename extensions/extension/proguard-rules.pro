@@ -1,1 +1,0 @@
--keep class app.morphe.patches.KeepAliveService { *; }
