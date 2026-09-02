@@ -1,3 +1,17 @@
+## [1.2.0](https://github.com/bhaylorina/Nai64Patches/compare/1.1.0...1.2.0) (2026-09-02)
+
+### Bug Fixes
+
+* make trigger class mutable ([559320a](https://github.com/bhaylorina/Nai64Patches/commit/559320abf850715789fa9dca8d0c684e6d3090e3))
+
+### New Features
+
+* add active foreground service and trigger ([80f6bc6](https://github.com/bhaylorina/Nai64Patches/commit/80f6bc68454e461b7f8ac0ed5db56d6c7d9ea5c6))
+* Add ServiceStarter class to manage service lifecycle ([f63f9a8](https://github.com/bhaylorina/Nai64Patches/commit/f63f9a8db430d4264ddb6bdbd7db225986a76aca))
+* add universal active background service ([7d71921](https://github.com/bhaylorina/Nai64Patches/commit/7d7192105c0d72245f69f8d22132c3fa19e23b88))
+* add universal active background service ([10b9ced](https://github.com/bhaylorina/Nai64Patches/commit/10b9ced8786b57be21b67cc59fa6b7fcc0825f7a))
+* add universal active background service2 ([7a4c9ae](https://github.com/bhaylorina/Nai64Patches/commit/7a4c9ae1435dde3c109953d6e5a3bba09ca49d9c))
+
 ## [1.1.0](https://github.com/bhaylorina/Nai64Patches/compare/1.0.0...1.1.0) (2026-09-01)
 
 ### New Features

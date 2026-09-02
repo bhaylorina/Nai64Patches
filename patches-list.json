@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "patches": [
     {
       "name": "Skip Consent Popup",
@@ -1148,6 +1148,14 @@
           "values": null
         }
       ]
+    },
+    {
+      "name": "Add Active Foreground Service Info",
+      "description": "Injects Android 14 foreground service permissions and tags.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
     },
     {
       "name": "Ads Free Rewards (Experimental)",
@@ -4461,6 +4469,14 @@
     {
       "name": "Treat Screen as On",
       "description": "Makes PowerManager.isInteractive always return true so apps keep playing audio or progressing instead of pausing while the screen is off",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
+    },
+    {
+      "name": "Trigger Active Service",
+      "description": "Hooks into the app to start the universal active timer service on launch.",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
