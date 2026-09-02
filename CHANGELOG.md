@@ -1,3 +1,14 @@
+## [1.4.0](https://github.com/bhaylorina/Nai64Patches/compare/1.3.4...1.4.0) (2026-09-02)
+
+### Bug Fixes
+
+* Update KeepAliveService notification settings ([a4f36e3](https://github.com/bhaylorina/Nai64Patches/commit/a4f36e3bc579f5246c3022dbeb12623e60a803f0))
+* Update TriggerFGSPatch to use Application hook ([292b184](https://github.com/bhaylorina/Nai64Patches/commit/292b18442cf705b2da44db3bfef5a927ada41adf))
+
+### New Features
+
+* Add KeepAliveManager for service management ([8614d97](https://github.com/bhaylorina/Nai64Patches/commit/8614d9770d9108a3c08f4cb920f7e5f3385d7499))
+
 ## [1.3.4](https://github.com/bhaylorina/Nai64Patches/compare/1.3.3...1.3.4) (2026-09-02)
 
 ### Bug Fixes
