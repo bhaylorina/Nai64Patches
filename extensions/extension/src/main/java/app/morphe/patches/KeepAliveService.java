@@ -8,6 +8,7 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ServiceInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,7 +22,7 @@ public class KeepAliveService extends Service {
     // Triggered safely by the XApplication hook
     public static void init(Application app) {
         if (isTriggered) return;
-        isTriggered = true; 
+        isTriggered = true;
 
         // 1.5 Second Delay ensures Android 16 grants FGS token
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
@@ -47,7 +48,11 @@ public class KeepAliveService extends Service {
         try {
             if (Build.VERSION.SDK_INT >= 26) {
                 NotificationManager nm = getSystemService(NotificationManager.class);
-                NotificationChannel ch = new NotificationChannel("fgs_immortal", "X Keep Alive", 2);
+                NotificationChannel ch = new NotificationChannel(
+                        "fgs_immortal",
+                        "X Keep Alive",
+                        NotificationManager.IMPORTANCE_LOW
+                );
                 if (nm != null) nm.createNotificationChannel(ch);
 
                 Notification.Builder b = new Notification.Builder(this, "fgs_immortal")
@@ -56,7 +61,7 @@ public class KeepAliveService extends Service {
                     .setSmallIcon(android.R.drawable.ic_menu_info_details);
 
                 if (Build.VERSION.SDK_INT >= 34) {
-                    startForeground(1001, b.build(), 512); 
+                    startForeground(1001, b.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_REMOTE_MESSAGING);
                 } else {
                     startForeground(1001, b.build());
                 }
