@@ -1,3 +1,9 @@
+## [1.3.2](https://github.com/bhaylorina/Nai64Patches/compare/1.3.1...1.3.2) (2026-09-02)
+
+### Bug Fixes
+
+* trigger ([6acd7cc](https://github.com/bhaylorina/Nai64Patches/commit/6acd7cc7583b63ab642676467013656f3cefbd4d))
+
 ## [1.3.1](https://github.com/bhaylorina/Nai64Patches/compare/1.3.0...1.3.1) (2026-09-02)
 
 ### Bug Fixes

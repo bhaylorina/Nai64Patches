@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T12:57:27",
-  "description": "## [1.3.1](https://github.com/bhaylorina/Nai64Patches/compare/1.3.0...1.3.1) (2026-09-02)\n\n### Bug Fixes\n\n* Enhance KeepAliveService with start method and constructor ([4ab7d0c](https://github.com/bhaylorina/Nai64Patches/commit/4ab7d0c290e629968a5b607973373357edfeebc7))\n* Fix smali instruction in TriggerFGSPatch.kt ([2cfefe4](https://github.com/bhaylorina/Nai64Patches/commit/2cfefe4fb3ffe70a9e0ef36a7214b823ee76a2c4))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.3.1/patches-1.3.1.mpp",
+  "created_at": "2026-09-02T13:37:43",
+  "description": "## [1.3.2](https://github.com/bhaylorina/Nai64Patches/compare/1.3.1...1.3.2) (2026-09-02)\n\n### Bug Fixes\n\n* trigger ([6acd7cc](https://github.com/bhaylorina/Nai64Patches/commit/6acd7cc7583b63ab642676467013656f3cefbd4d))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.3.2/patches-1.3.2.mpp",
   "signature_download_url": "",
-  "version": "1.3.1"
+  "version": "1.3.2"
 }
