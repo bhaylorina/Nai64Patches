@@ -1,3 +1,11 @@
+## [1.4.7](https://github.com/bhaylorina/Nai64Patches/compare/1.4.6...1.4.7) (2026-09-02)
+
+### Bug Fixes
+
+* Add KeepAliveInitProvider for service management ([1b92d69](https://github.com/bhaylorina/Nai64Patches/commit/1b92d69b2f7012c2fb224d1a506b0947eacc1bd4))
+* Refactor KeepAliveService and update notification message ([bc1d845](https://github.com/bhaylorina/Nai64Patches/commit/bc1d8453b454e732773156fd1b22852df4c1f0d2))
+* Update ActiveManifestPatch with new permissions and service ([ec246c8](https://github.com/bhaylorina/Nai64Patches/commit/ec246c834869702c24f86a83e3c06cf2d966db26))
+
 ## [1.4.6](https://github.com/bhaylorina/Nai64Patches/compare/1.4.5...1.4.6) (2026-09-02)
 
 ### Bug Fixes
