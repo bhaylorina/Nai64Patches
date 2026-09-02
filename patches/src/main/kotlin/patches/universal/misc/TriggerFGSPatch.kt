@@ -7,33 +7,29 @@ import java.util.logging.Logger
 @Suppress("unused")
 val triggerFGSPatch = bytecodePatch(
     name = "Trigger Immortal FGS",
-    description = "Starts FGS safely from Activity",
+    description = "Starts FGS from all Activities onResume",
     default = false,
 ) {
     execute {
         val log = Logger.getLogger(
             this::class.java.name
         )
-        var patched = false
+        var patched = 0
 
         classDefForEach { c ->
-            // Hooking into Activity ensures MultiDex 
-            // is fully loaded before our code runs!
-            val targets = listOf(
-                "Landroidx/activity/" +
-                "ComponentActivity;",
-                "Landroidx/appcompat/app/" +
-                "AppCompatActivity;"
-            )
+            val isActivity = 
+                c.superclass == "Landroidx/appcompat/app/AppCompatActivity;" || 
+                c.superclass == "Landroidx/activity/ComponentActivity;" ||
+                c.superclass == "Landroid/app/Activity;"
 
-            if (c.type in targets) {
+            if (isActivity || c.type.contains("MainActivity")) {
                 val mClass = mutableClassDefBy(c)
-                val onC = mClass.methods.find { 
-                    it.name == "onCreate" 
+                val onR = mClass.methods.find { 
+                    it.name == "onResume" 
                 }
 
-                if (onC != null && 
-                    onC.implementation != null) {
+                if (onR != null && 
+                    onR.implementation != null) {
                     
                     val smali = "invoke-static " +
                         "{p0}, Lapp/morphe/" +
@@ -41,11 +37,11 @@ val triggerFGSPatch = bytecodePatch(
                         "->start(Landroid/content/" +
                         "Context;)V"
 
-                    onC.addInstructions(0, smali)
-                    patched = true
+                    onR.addInstructions(0, smali)
+                    patched++
                 }
             }
         }
-        if (patched) log.info("FGS Hooked!")
+        if (patched > 0) log.info("Hooked $patched screens!")
     }
 }
