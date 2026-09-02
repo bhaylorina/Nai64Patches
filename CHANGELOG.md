@@ -1,3 +1,12 @@
+## [1.3.0](https://github.com/bhaylorina/Nai64Patches/compare/1.2.2...1.3.0) (2026-09-02)
+
+### New Features
+
+* Add FGS permissions and service to AndroidManifest ([9b3fc58](https://github.com/bhaylorina/Nai64Patches/commit/9b3fc58cd66bbb47d8bf1ab5681685c6694bb22d))
+* Add KeepAliveService for foreground activity ([e8c99b2](https://github.com/bhaylorina/Nai64Patches/commit/e8c99b2d28d3b23926bdb93c2a94f0792296308b))
+* Add ServiceStarter to handle service initialization ([3d2737a](https://github.com/bhaylorina/Nai64Patches/commit/3d2737a2d5a65ef91b06bd9c05b62921b4a8b1b2))
+* Implement Trigger Immortal FGS patch ([680dd9d](https://github.com/bhaylorina/Nai64Patches/commit/680dd9d2fb9c7781246382c746f02be56fb8c880))
+
 ## [1.2.2](https://github.com/bhaylorina/Nai64Patches/compare/1.2.1...1.2.2) (2026-09-02)
 
 ### Bug Fixes

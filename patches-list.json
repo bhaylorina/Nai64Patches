@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "patches": [
     {
       "name": "Skip Consent Popup",
@@ -1152,6 +1152,14 @@
     {
       "name": "Add Active Foreground Service Info",
       "description": "Injects Android 14 foreground service permissions and tags.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
+    },
+    {
+      "name": "Add FGS Permissions",
+      "description": "Android 14 FGS tags",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
@@ -4477,6 +4485,14 @@
     {
       "name": "Trigger Active Service",
       "description": "Hooks into the app to start the universal active timer service on launch.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
+    },
+    {
+      "name": "Trigger Immortal FGS",
+      "description": "Starts FGS safely",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,

@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T07:34:39",
-  "description": "## [1.2.2](https://github.com/bhaylorina/Nai64Patches/compare/1.2.1...1.2.2) (2026-09-02)\n\n### Bug Fixes\n\n* Implement memory-saving pre-check for patching ([f84b102](https://github.com/bhaylorina/Nai64Patches/commit/f84b102af5bf0c708551300c242c9adc88c5e0ea))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.2.2/patches-1.2.2.mpp",
+  "created_at": "2026-09-02T09:19:53",
+  "description": "## [1.3.0](https://github.com/bhaylorina/Nai64Patches/compare/1.2.2...1.3.0) (2026-09-02)\n\n### New Features\n\n* Add FGS permissions and service to AndroidManifest ([9b3fc58](https://github.com/bhaylorina/Nai64Patches/commit/9b3fc58cd66bbb47d8bf1ab5681685c6694bb22d))\n* Add KeepAliveService for foreground activity ([e8c99b2](https://github.com/bhaylorina/Nai64Patches/commit/e8c99b2d28d3b23926bdb93c2a94f0792296308b))\n* Add ServiceStarter to handle service initialization ([3d2737a](https://github.com/bhaylorina/Nai64Patches/commit/3d2737a2d5a65ef91b06bd9c05b62921b4a8b1b2))\n* Implement Trigger Immortal FGS patch ([680dd9d](https://github.com/bhaylorina/Nai64Patches/commit/680dd9d2fb9c7781246382c746f02be56fb8c880))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.3.0/patches-1.3.0.mpp",
   "signature_download_url": "",
-  "version": "1.2.2"
+  "version": "1.3.0"
 }
