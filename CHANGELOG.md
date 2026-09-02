@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/bhaylorina/Nai64Patches/compare/1.3.0...1.3.1) (2026-09-02)
+
+### Bug Fixes
+
+* Enhance KeepAliveService with start method and constructor ([4ab7d0c](https://github.com/bhaylorina/Nai64Patches/commit/4ab7d0c290e629968a5b607973373357edfeebc7))
+* Fix smali instruction in TriggerFGSPatch.kt ([2cfefe4](https://github.com/bhaylorina/Nai64Patches/commit/2cfefe4fb3ffe70a9e0ef36a7214b823ee76a2c4))
+
 ## [1.3.0](https://github.com/bhaylorina/Nai64Patches/compare/1.2.2...1.3.0) (2026-09-02)
 
 ### New Features

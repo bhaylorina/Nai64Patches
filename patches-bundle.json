@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T09:19:53",
-  "description": "## [1.3.0](https://github.com/bhaylorina/Nai64Patches/compare/1.2.2...1.3.0) (2026-09-02)\n\n### New Features\n\n* Add FGS permissions and service to AndroidManifest ([9b3fc58](https://github.com/bhaylorina/Nai64Patches/commit/9b3fc58cd66bbb47d8bf1ab5681685c6694bb22d))\n* Add KeepAliveService for foreground activity ([e8c99b2](https://github.com/bhaylorina/Nai64Patches/commit/e8c99b2d28d3b23926bdb93c2a94f0792296308b))\n* Add ServiceStarter to handle service initialization ([3d2737a](https://github.com/bhaylorina/Nai64Patches/commit/3d2737a2d5a65ef91b06bd9c05b62921b4a8b1b2))\n* Implement Trigger Immortal FGS patch ([680dd9d](https://github.com/bhaylorina/Nai64Patches/commit/680dd9d2fb9c7781246382c746f02be56fb8c880))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.3.0/patches-1.3.0.mpp",
+  "created_at": "2026-09-02T12:57:27",
+  "description": "## [1.3.1](https://github.com/bhaylorina/Nai64Patches/compare/1.3.0...1.3.1) (2026-09-02)\n\n### Bug Fixes\n\n* Enhance KeepAliveService with start method and constructor ([4ab7d0c](https://github.com/bhaylorina/Nai64Patches/commit/4ab7d0c290e629968a5b607973373357edfeebc7))\n* Fix smali instruction in TriggerFGSPatch.kt ([2cfefe4](https://github.com/bhaylorina/Nai64Patches/commit/2cfefe4fb3ffe70a9e0ef36a7214b823ee76a2c4))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.3.1/patches-1.3.1.mpp",
   "signature_download_url": "",
-  "version": "1.3.0"
+  "version": "1.3.1"
 }
