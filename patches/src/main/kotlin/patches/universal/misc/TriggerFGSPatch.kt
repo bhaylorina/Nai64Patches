@@ -2,7 +2,6 @@ package patches.universal.misc
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.patch.sharedExtensionPatch // CRITICAL: Import for merging extension classes
 import patches.universal.ads.util.cloneMutable
 import patches.universal.ads.util.p0Register
 import patches.universal.ui.StartupHooks
@@ -15,10 +14,6 @@ val triggerFGSPatch = bytecodePatch(
     description = "Starts a persistent foreground keep-alive service shortly after the app launches.",
     default = true,
 ) {
-    // THE FIX: Forces Patcher to actually pack KeepAliveService.class into the APK!
-    dependsOn(sharedExtensionPatch)
-    
-    // Your original dependency
     dependsOn(StartupHooks.resolveRealApplicationPatch)
 
     execute {
