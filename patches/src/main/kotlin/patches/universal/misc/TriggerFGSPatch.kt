@@ -27,7 +27,7 @@ val triggerFGSPatch = bytecodePatch(
                 if (onC != null && onC.implementation != null) {
                     val smali = "invoke-static " +
                         "{p0}, Lapp/morphe/" +
-                        "patches/ServiceStarter;" +
+                        "patches/KeepAliveService;" +
                         "->start(Landroid/content/" +
                         "Context;)V"
 
@@ -41,4 +41,3 @@ val triggerFGSPatch = bytecodePatch(
         ).info("FGS Triggered")
     }
 }
-
