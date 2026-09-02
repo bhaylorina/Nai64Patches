@@ -2,42 +2,57 @@ package patches.universal.misc
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
+import patches.universal.ads.util.cloneMutable
+import patches.universal.ads.util.p0Register
+import patches.universal.ui.StartupHooks
+import patches.universal.ui.findApplicationOnCreate
 import java.util.logging.Logger
 
 @Suppress("unused")
 val triggerFGSPatch = bytecodePatch(
     name = "Trigger Immortal FGS",
-    description = "Safe Application Hook (Bypasses Split-APK ClassLoader)",
+    description = "Starts a persistent foreground keep-alive service shortly after the app launches.",
     default = true,
 ) {
+    dependsOn(StartupHooks.resolveRealApplicationPatch)
+
     execute {
-        val log = Logger.getLogger(this::class.java.name)
-        var patched = false
+        val logger = Logger.getLogger(this::class.java.name)
 
-        classDefForEach { c ->
-            // Specifically target the Master Application classes
-            val isApp = c.type == "Lcom/x/android/XApplication;" || 
-                        c.superclass == "Landroid/app/Application;" || 
-                        c.superclass == "Landroidx/multidex/MultiDexApplication;"
-
-            if (isApp && !patched) { 
-                val mClass = mutableClassDefBy(c)
-                val onC = mClass.methods.find { it.name == "onCreate" }
-
-                if (onC != null && onC.implementation != null) {
-                    // Safe reference prevents R8 Shrinker from deleting the class
-                    val smali = "invoke-static {p0}, Lapp/morphe/patches/KeepAliveService;->init(Landroid/app/Application;)V"
-                    
-                    val insts = onC.implementation!!.instructions
-                    val retIdx = insts.indexOfLast { it.opcode.name == "return-void" }
-                    
-                    if (retIdx != -1) {
-                        onC.addInstructions(retIdx, smali)
-                        patched = true
-                        log.info("Successfully hooked Application: ${c.type}")
-                    }
+        val (mutableClass, onCreate) = run {
+            val descriptor = StartupHooks.resolvedApplicationDescriptor
+            if (descriptor != null) {
+                val cls = mutableClassDefByOrNull(descriptor)
+                val om = cls?.methods?.firstOrNull {
+                    it.name == "onCreate" && it.returnType == "V" && it.parameterTypes.isEmpty()
+                }
+                if (cls != null && om != null) {
+                    return@run cls to om
                 }
             }
+            findApplicationOnCreate()
+        } ?: run {
+            logger.warning("No Application.onCreate found. No changes applied.")
+            return@execute
         }
+
+        // No extra temp registers needed — we only pass p0 (the Application
+        // instance) straight through to KeepAliveService.init(). Still clone
+        // so p0's register number is resolved consistently, same as the other
+        // startup patches in this repo.
+        val cloned = onCreate.cloneMutable(additionalRegisters = 0)
+        val contextReg = cloned.p0Register
+
+        cloned.addInstructions(
+            0,
+            """
+            invoke-static/range {v$contextReg .. v$contextReg}, Lapp/morphe/patches/KeepAliveService;->init(Landroid/app/Application;)V
+            """.trimIndent(),
+        )
+
+        mutableClass.methods.remove(onCreate)
+        mutableClass.methods.add(cloned)
+
+        logger.info("Immortal FGS trigger hooked into ${mutableClass.type}->onCreate")
     }
 }
