@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T14:58:37",
-  "description": "## [1.4.3](https://github.com/bhaylorina/Nai64Patches/compare/1.4.2...1.4.3) (2026-09-02)\n\n### Bug Fixes\n\n* Refactor KeepAliveService and update notification text ([c0276c0](https://github.com/bhaylorina/Nai64Patches/commit/c0276c0b38cc1116bb3e759a7c2d497f5efeb68f))\n* Update TriggerFGSPatch description and logic ([7d3fce3](https://github.com/bhaylorina/Nai64Patches/commit/7d3fce3b4a7010936ded4945efbfb1a7c0b0e397))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.3/patches-1.4.3.mpp",
+  "created_at": "2026-09-02T15:10:22",
+  "description": "## [1.4.4](https://github.com/bhaylorina/Nai64Patches/compare/1.4.3...1.4.4) (2026-09-02)\n\n### Bug Fixes\n\n* Implement lock to prevent multiple service starts ([9af8b75](https://github.com/bhaylorina/Nai64Patches/commit/9af8b75a56ea3e7ffdc43df441f15e81924a7ed4))\n* Refactor TriggerFGSPatch to hook all Activities ([e12445f](https://github.com/bhaylorina/Nai64Patches/commit/e12445f3fed6ff0c8fce1d9f7c834c76fe63579b))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.4/patches-1.4.4.mpp",
   "signature_download_url": "",
-  "version": "1.4.3"
+  "version": "1.4.4"
 }

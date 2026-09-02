@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/bhaylorina/Nai64Patches/compare/1.4.3...1.4.4) (2026-09-02)
+
+### Bug Fixes
+
+* Implement lock to prevent multiple service starts ([9af8b75](https://github.com/bhaylorina/Nai64Patches/commit/9af8b75a56ea3e7ffdc43df441f15e81924a7ed4))
+* Refactor TriggerFGSPatch to hook all Activities ([e12445f](https://github.com/bhaylorina/Nai64Patches/commit/e12445f3fed6ff0c8fce1d9f7c834c76fe63579b))
+
 ## [1.4.3](https://github.com/bhaylorina/Nai64Patches/compare/1.4.2...1.4.3) (2026-09-02)
 
 ### Bug Fixes
