@@ -7,34 +7,44 @@ import java.util.logging.Logger
 @Suppress("unused")
 val triggerFGSPatch = bytecodePatch(
     name = "Trigger Immortal FGS",
-    description = "Carpet Bomb Hook for all Activities",
+    description = "Safe Carpet Bomb Hook for Activities",
     default = false,
 ) {
     execute {
         val log = Logger.getLogger(this::class.java.name)
         var count = 0
 
+        // Only target concrete Activity base classes to prevent Patcher NPE
+        val validSuperclasses = listOf(
+            "Landroidx/appcompat/app/AppCompatActivity;",
+            "Landroidx/activity/ComponentActivity;",
+            "Landroidx/fragment/app/FragmentActivity;",
+            "Landroid/app/Activity;"
+        )
+
         classDefForEach { c ->
-            // Target ANY class ending with "Activity;"
-            if (c.type.endsWith("Activity;")) {
+            if (c.superclass in validSuperclasses || c.type.contains("MainActivity")) {
                 val mClass = mutableClassDefBy(c)
                 
-                // Grab whichever method exists
+                // Specifically hook onResume so it triggers when screen is visible
                 val targetMethod = mClass.methods.find { 
-                    it.name == "onCreate" || it.name == "onResume" 
+                    it.name == "onResume" 
                 }
 
                 if (targetMethod != null && targetMethod.implementation != null) {
-                    val smali = "invoke-static {p0}, Lapp/morphe/" +
-                        "patches/KeepAliveService;" +
-                        "->start(Landroid/content/Context;)V"
-                    
-                    targetMethod.addInstructions(0, smali)
-                    count++
+                    try {
+                        val smali = "invoke-static {p0}, Lapp/morphe/" +
+                            "patches/KeepAliveService;" +
+                            "->start(Landroid/content/Context;)V"
+                        
+                        targetMethod.addInstructions(0, smali)
+                        count++
+                    } catch (e: Exception) {
+                        // Safely ignore any compiler quirks on obscure classes
+                    }
                 }
             }
         }
-        // This will tell us exactly how many screens we infected!
-        log.info("Carpet Bomb Hit: Hooked $count Activity methods!")
+        log.info("Safe Carpet Bomb Hit: Hooked $count screens!")
     }
 }
