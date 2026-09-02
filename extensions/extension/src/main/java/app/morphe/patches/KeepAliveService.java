@@ -8,6 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
 
 public class KeepAliveService extends Service {
     public KeepAliveService() {
@@ -25,7 +28,9 @@ public class KeepAliveService extends Service {
             } else {
                 ctx.startService(i);
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            showToast(ctx, "Start Fail: " + e.getMessage());
+        }
     }
 
     @Override
@@ -36,21 +41,15 @@ public class KeepAliveService extends Service {
         try {
             if (Build.VERSION.SDK_INT >= 26) {
                 NotificationManager nm = 
-                    getSystemService(
-                        NotificationManager.class
-                    );
+                    getSystemService(NotificationManager.class);
                 NotificationChannel ch = 
                     new NotificationChannel(
-                        "fgs_immortal", "X Keep Alive", 2
+                        "fgs_imm", "X Keep Alive", 2
                     );
-                if (nm != null) {
-                    nm.createNotificationChannel(ch);
-                }
+                if (nm != null) { nm.createNotificationChannel(ch); }
 
                 Notification.Builder b = 
-                    new Notification.Builder(
-                        this, "fgs_immortal"
-                    )
+                    new Notification.Builder(this, "fgs_imm")
                     .setContentTitle("X is Immortal")
                     .setContentText("Network Locked")
                     .setSmallIcon(
@@ -58,12 +57,21 @@ public class KeepAliveService extends Service {
                     );
 
                 if (Build.VERSION.SDK_INT >= 34) {
-                    startForeground(1001, b.build(), 1); 
+                    // 512 = remoteMessaging
+                    startForeground(1001, b.build(), 512); 
                 } else {
                     startForeground(1001, b.build());
                 }
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            showToast(this, "FGS Fail: " + e.getMessage());
+        }
         return START_STICKY;
+    }
+
+    private static void showToast(Context ctx, String msg) {
+        new Handler(Looper.getMainLooper()).post(() -> 
+            Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show()
+        );
     }
 }
