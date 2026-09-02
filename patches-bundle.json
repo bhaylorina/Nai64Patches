@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T13:49:54",
-  "description": "## [1.3.3](https://github.com/bhaylorina/Nai64Patches/compare/1.3.2...1.3.3) (2026-09-02)\n\n### Bug Fixes\n\n* Refactor KeepAliveService for notification handling ([28f3f04](https://github.com/bhaylorina/Nai64Patches/commit/28f3f04d30ce87ec802e555ab312ad7f006910b8))\n* Update TriggerFGSPatch to hook onResume instead of onCreate ([b28e5de](https://github.com/bhaylorina/Nai64Patches/commit/b28e5debb83f28c773294620ab044308b3f6520e))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.3.3/patches-1.3.3.mpp",
+  "created_at": "2026-09-02T14:02:00",
+  "description": "## [1.3.4](https://github.com/bhaylorina/Nai64Patches/compare/1.3.3...1.3.4) (2026-09-02)\n\n### Bug Fixes\n\n* Enhance KeepAliveService with error handling ([f7a1c76](https://github.com/bhaylorina/Nai64Patches/commit/f7a1c760705316de6be492c7bf01bb79dbe9420b))\n* Update FGS permissions in ActiveManifestPatch ([7b89169](https://github.com/bhaylorina/Nai64Patches/commit/7b891695cf2d94b8ae6a76edffbd5baedc650424))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.3.4/patches-1.3.4.mpp",
   "signature_download_url": "",
-  "version": "1.3.3"
+  "version": "1.3.4"
 }

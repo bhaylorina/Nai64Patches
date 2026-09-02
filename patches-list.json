@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "patches": [
     {
       "name": "Skip Consent Popup",
@@ -1159,7 +1159,7 @@
     },
     {
       "name": "Add FGS Permissions",
-      "description": "Android 14 FGS tags",
+      "description": "Android 14/16 FGS tags",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,

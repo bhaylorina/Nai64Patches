@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/bhaylorina/Nai64Patches/compare/1.3.3...1.3.4) (2026-09-02)
+
+### Bug Fixes
+
+* Enhance KeepAliveService with error handling ([f7a1c76](https://github.com/bhaylorina/Nai64Patches/commit/f7a1c760705316de6be492c7bf01bb79dbe9420b))
+* Update FGS permissions in ActiveManifestPatch ([7b89169](https://github.com/bhaylorina/Nai64Patches/commit/7b891695cf2d94b8ae6a76edffbd5baedc650424))
+
 ## [1.3.3](https://github.com/bhaylorina/Nai64Patches/compare/1.3.2...1.3.3) (2026-09-02)
 
 ### Bug Fixes
