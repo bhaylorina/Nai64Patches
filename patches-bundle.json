@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-02T17:28:49",
-  "description": "## [1.4.10](https://github.com/bhaylorina/Nai64Patches/compare/1.4.9...1.4.10) (2026-09-02)\n\n### Bug Fixes\n\n* Refactor KeepAliveService for improved functionality ([d0a3a94](https://github.com/bhaylorina/Nai64Patches/commit/d0a3a944ef799358ce6a884aae77024c4dd98b51))\n* Update FGS permissions and logging for API 36 ([844ee55](https://github.com/bhaylorina/Nai64Patches/commit/844ee556e965b5e0ac759dcd323e87f6f7dcc285))\n* Update TriggerFGSPatch to inject FGS trigger onResume ([5e91381](https://github.com/bhaylorina/Nai64Patches/commit/5e91381c524b058294d0feb331ef79a69d1ef855))",
-  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.10/patches-1.4.10.mpp",
+  "created_at": "2026-09-02T17:41:49",
+  "description": "## [1.4.11](https://github.com/bhaylorina/Nai64Patches/compare/1.4.10...1.4.11) (2026-09-02)\n\n### Bug Fixes\n\n* Refactor KeepAliveService for better context handling ([29d32ce](https://github.com/bhaylorina/Nai64Patches/commit/29d32cead5f788cb8d300614389142c37dfecdfe))\n* Update TriggerFGSPatch to hook all Activity onCreate methods ([d13d5b7](https://github.com/bhaylorina/Nai64Patches/commit/d13d5b742ce48e8440229edaefd9959171250656))",
+  "download_url": "https://github.com/bhaylorina/Nai64Patches/releases/download/1.4.11/patches-1.4.11.mpp",
   "signature_download_url": "",
-  "version": "1.4.10"
+  "version": "1.4.11"
 }

@@ -1,3 +1,10 @@
+## [1.4.11](https://github.com/bhaylorina/Nai64Patches/compare/1.4.10...1.4.11) (2026-09-02)
+
+### Bug Fixes
+
+* Refactor KeepAliveService for better context handling ([29d32ce](https://github.com/bhaylorina/Nai64Patches/commit/29d32cead5f788cb8d300614389142c37dfecdfe))
+* Update TriggerFGSPatch to hook all Activity onCreate methods ([d13d5b7](https://github.com/bhaylorina/Nai64Patches/commit/d13d5b742ce48e8440229edaefd9959171250656))
+
 ## [1.4.10](https://github.com/bhaylorina/Nai64Patches/compare/1.4.9...1.4.10) (2026-09-02)
 
 ### Bug Fixes

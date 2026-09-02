@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.4.10",
+  "version": "1.4.11",
   "patches": [
     {
       "name": "Skip Consent Popup",
@@ -4492,7 +4492,7 @@
     },
     {
       "name": "Trigger Immortal FGS",
-      "description": "Injects delayed FGS trigger into Activity.onResume",
+      "description": "Total Domination: Hooks all onCreate methods",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
