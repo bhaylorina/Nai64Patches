@@ -1,3 +1,9 @@
+## [1.4.15](https://github.com/bhaylorina/Nai64Patches/compare/1.4.14...1.4.15) (2026-09-02)
+
+### Bug Fixes
+
+* Enhance TriggerFGSPatch to start foreground service ([2caa411](https://github.com/bhaylorina/Nai64Patches/commit/2caa411279d43cdc9790de2d8759a1e2ab0ffe4a))
+
 ## [1.4.14](https://github.com/bhaylorina/Nai64Patches/compare/1.4.13...1.4.14) (2026-09-02)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.4.14",
+  "version": "1.4.15",
   "patches": [
     {
       "name": "Skip Consent Popup",
@@ -4492,9 +4492,11 @@
     },
     {
       "name": "Trigger Immortal FGS",
-      "description": "Safe Application Hook (Bypasses Split-APK ClassLoader)",
+      "description": "Starts a persistent foreground keep-alive service shortly after the app launches.",
       "default": false,
-      "dependencies": [],
+      "dependencies": [
+        "ResourcePatch"
+      ],
       "compatiblePackages": null,
       "options": []
     },
